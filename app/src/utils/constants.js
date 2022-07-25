@@ -6,5 +6,11 @@ export const colors = {
 }
 
 export const authService = axios.create({
-	baseURL: 'http://192.168.43.18:5000/api/auth',
+	baseURL: 'http://192.168.43.231:5000/api/auth',
 })
+
+export const noteService = axios.create({
+	baseURL: 'http://192.168.43.231:5000/api/notes'
+})
+
+export const options = ["Self development", "Learning"];

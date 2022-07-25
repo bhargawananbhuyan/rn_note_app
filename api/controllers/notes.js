@@ -33,9 +33,23 @@ const getANoteController = async (req, res) => {
 	}
 }
 
-const updateANoteController = async (req, res) => {}
+const updateANoteController = async (req, res) => {
+	try {
+		const noteToUpdate = await Note.findOneAndUpdate({_id: req.params.id}, req.body, {new: true});
+		return res.status(200).json({data: noteToUpdate})
+	} catch (error) {
+		res.json({ error })
+	}
+}
 
-const deleteANoteController = async (req, res) => {}
+const deleteANoteController = async (req, res) => {
+	try {
+		const noteToDelete = await Note.findOneAndDelete({_id: req.params.id});
+		return res.status(200).json({data: noteToDelete})
+	} catch (error) {
+		res.json({ error })
+	}
+}
 
 module.exports = {
 	addNoteController,
